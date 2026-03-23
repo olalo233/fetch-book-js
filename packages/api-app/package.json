@@ -1,0 +1,23 @@
+
+{
+  "name": "@fetch-book/api-app",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --hot src/server.ts",
+    "build": "bun build src/server.ts --outdir dist --target bun",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@fetch-book/shared": "workspace:*",
+    "@prisma/client": "^5.0.0",
+    "hono": "^4.0.0",
+    "jsonwebtoken": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.0",
+    "prisma": "^5.0.0",
+    "typescript": "^5.4.0"
+  }
+}
+
