@@ -1,0 +1,22 @@
+
+{
+  "name": "fetch-book-js",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "bun run --filter \"*\" dev",
+    "build": "bun run --filter \"*\" build",
+    "clean": "bun run --filter \"*\" clean &amp;&amp; rm -rf node_modules"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.5.0",
+    "typescript": "^5.4.0"
+  },
+  "engines": {
+    "bun": "&gt;=1.0.0"
+  }
+}
+
