@@ -1,25 +1,23 @@
-
 {
-  "name": "@fetch-book/crawler-app",
-  "version": "1.0.0",
-  "type": "module",
-  "bin": {
-    "fetch-book-crawler": "./dist/cli.js"
-  },
-  "scripts": {
-    "dev": "bun run --hot src/server.ts",
-    "dev:cli": "bun run src/cli.ts",
-    "build": "bun build src/server.ts --outdir dist --target bun &amp;&amp; bun build src/cli.ts --outdir dist --target bun",
-    "clean": "rm -rf dist"
-  },
-  "dependencies": {
-    "@fetch-book/shared": "workspace:*",
-    "cheerio": "^1.0.0",
-    "commander": "^12.0.0",
-    "hono": "^4.0.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.4.0"
-  }
+	"name": "@fetch-book/crawler-app",
+	"version": "1.0.0",
+	"type": "module",
+	"bin": {
+		"fetch-book-crawler": "./dist/cli.js"
+	},
+	"scripts": {
+		"dev": "bun run --hot src/server.ts",
+		"dev:cli": "bun run src/cli.ts",
+		"build": "bun build src/server.ts --outdir dist --target bun &amp;&amp; bun build src/cli.ts --outdir dist --target bun",
+		"clean": "rm -rf dist"
+	},
+	"dependencies": {
+		"@fetch-book/shared": "workspace:*",
+		"cheerio": "^1.0.0",
+		"commander": "^12.0.0",
+		"hono": "^4.0.0"
+	},
+	"devDependencies": {
+		"typescript": "^5.4.0"
+	}
 }
-
