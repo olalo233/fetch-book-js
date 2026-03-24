@@ -6,7 +6,16 @@
 	"linter": {
 		"rules": {
 			"complexity": {
-				"noForEach": "off"
+				"noForEach": "off",
+				"useLiteralKeys": "off"
+			},
+			"style": {
+				"useImportType": "off",
+				"noNonNullAssertion": "off"
+			},
+			"a11y": {
+				"noLabelWithoutControl": "off",
+				"useButtonType": "off"
 			}
 		}
 	}
