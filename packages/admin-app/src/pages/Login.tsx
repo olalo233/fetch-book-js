@@ -1,22 +1,26 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Login() {
-	const [apiUrl, setApiUrl] = useState('');
-	const [token, setToken] = useState('');
+	const [apiUrl, setApiUrl] = useState("");
+	const [token, setToken] = useState("");
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 		// TODO: Implement login logic
-		console.log('Login:', { apiUrl, token });
+		console.log("Login:", { apiUrl, token });
 	};
 
 	return (
 		<div className="flex items-center justify-center min-h-screen">
 			<div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-				<h1 className="text-2xl font-bold mb-6 text-center">Fetch Book Admin</h1>
+				<h1 className="text-2xl font-bold mb-6 text-center">
+					Fetch Book Admin
+				</h1>
 				<form onSubmit={handleSubmit} className="space-y-4">
 					<div>
-						<label className="block text-sm font-medium text-gray-700 mb-1">API URL</label>
+						<label className="block text-sm font-medium text-gray-700 mb-1">
+							API URL
+						</label>
 						<input
 							type="text"
 							value={apiUrl}
@@ -26,7 +30,9 @@ export default function Login() {
 						/>
 					</div>
 					<div>
-						<label className="block text-sm font-medium text-gray-700 mb-1">Token</label>
+						<label className="block text-sm font-medium text-gray-700 mb-1">
+							Token
+						</label>
 						<input
 							type="password"
 							value={token}

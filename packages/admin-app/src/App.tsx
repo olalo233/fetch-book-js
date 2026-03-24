@@ -1,6 +1,6 @@
-import { Routes, Route } from 'react-router-dom';
-import Login from './pages/Login';
-import NovelList from './pages/NovelList';
+import { Route, Routes } from "react-router-dom";
+import Login from "./pages/Login";
+import NovelList from "./pages/NovelList";
 
 export default function App() {
 	return (
