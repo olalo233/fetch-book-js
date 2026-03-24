@@ -3,6 +3,9 @@
 	"files": {
 		"ignore": ["ocrReplaceDOM.js", "**/dist/**", "**/node_modules/**"]
 	},
+	"organizeImports": {
+		"enabled": false
+	},
 	"linter": {
 		"rules": {
 			"complexity": {
