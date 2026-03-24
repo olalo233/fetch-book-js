@@ -1,3 +1,3 @@
 export class HaxsMeAdapter {
-  // TODO: Implement HaxsMeAdapter
+	// TODO: Implement HaxsMeAdapter
 }
