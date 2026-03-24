@@ -11,8 +11,8 @@ export interface Chapter {
   createdAt: Date;
 }
 
-export interface ChapterRepository extends Repository&lt;Chapter, string&gt; {
-  findByNovelId(novelId: string): Promise&lt;Chapter[]&gt;;
-  findByNovelIdAndIndex(novelId: string, index: number): Promise&lt;Chapter | null&gt;;
+export interface ChapterRepository extends Repository<Chapter, string> {
+  findByNovelId(novelId: string): Promise<Chapter[]>;
+  findByNovelIdAndIndex(novelId: string, index: number): Promise<Chapter | null>;
 }
 

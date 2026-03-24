@@ -12,7 +12,7 @@ model Novel {
   id        String   @id @default(cuid())
   title     String
   author    String?
-  tags      String[]
+  tags      String
   description String?
   url       String   @unique
   chapters  Chapter[]

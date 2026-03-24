@@ -1,4 +1,3 @@
-
 import type { Repository } from './index';
 
 export interface Novel {
@@ -12,7 +11,6 @@ export interface Novel {
   updatedAt: Date;
 }
 
-export interface NovelRepository extends Repository&lt;Novel, string&gt; {
-  findByUrl(url: string): Promise&lt;Novel | null&gt;;
+export interface NovelRepository extends Repository<Novel, string> {
+  findByUrl(url: string): Promise<Novel | null>;
 }
-

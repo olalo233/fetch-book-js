@@ -9,7 +9,7 @@ export interface AuthToken {
   createdAt: Date;
 }
 
-export interface AuthTokenRepository extends Repository&lt;AuthToken, string&gt; {
-  findByToken(token: string): Promise&lt;AuthToken | null&gt;;
+export interface AuthTokenRepository extends Repository<AuthToken, string> {
+  findByToken(token: string): Promise<AuthToken | null>;
 }
 

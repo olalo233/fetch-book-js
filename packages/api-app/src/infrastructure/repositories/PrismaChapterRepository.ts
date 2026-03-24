@@ -5,32 +5,32 @@ import type { Chapter, ChapterRepository } from './ChapterRepository';
 export class PrismaChapterRepository implements ChapterRepository {
   constructor(private prisma: PrismaClient) {}
 
-  async findById(id: string): Promise&lt;Chapter | null&gt; {
+  async findById(id: string): Promise<Chapter | null> {
     const chapter = await this.prisma.chapter.findUnique({ where: { id } });
     return chapter ? this.toModel(chapter) : null;
   }
 
-  async findAll(): Promise&lt;Chapter[]&gt; {
+  async findAll(): Promise<Chapter[]> {
     const chapters = await this.prisma.chapter.findMany();
     return chapters.map(this.toModel);
   }
 
-  async findByNovelId(novelId: string): Promise&lt;Chapter[]&gt; {
+  async findByNovelId(novelId: string): Promise<Chapter[]> {
     const chapters = await this.prisma.chapter.findMany({ where: { novelId }, orderBy: { index: 'asc' } });
     return chapters.map(this.toModel);
   }
 
-  async findByNovelIdAndIndex(novelId: string, index: number): Promise&lt;Chapter | null&gt; {
+  async findByNovelIdAndIndex(novelId: string, index: number): Promise<Chapter | null> {
     const chapter = await this.prisma.chapter.findFirst({ where: { novelId, index } });
     return chapter ? this.toModel(chapter) : null;
   }
 
-  async create(data: Omit&lt;Chapter, 'id' | 'createdAt'&gt;): Promise&lt;Chapter&gt; {
+  async create(data: Omit<Chapter, 'id' | 'createdAt'>): Promise<Chapter> {
     const chapter = await this.prisma.chapter.create({ data });
     return this.toModel(chapter);
   }
 
-  async update(id: string, data: Partial&lt;Omit&lt;Chapter, 'id' | 'createdAt'&gt;&gt;): Promise&lt;Chapter | null&gt; {
+  async update(id: string, data: Partial<Omit<Chapter, 'id' | 'createdAt'>>): Promise<Chapter | null> {
     try {
       const chapter = await this.prisma.chapter.update({ where: { id }, data });
       return this.toModel(chapter);
@@ -39,7 +39,7 @@ export class PrismaChapterRepository implements ChapterRepository {
     }
   }
 
-  async delete(id: string): Promise&lt;boolean&gt; {
+  async delete(id: string): Promise<boolean> {
     try {
       await this.prisma.chapter.delete({ where: { id } });
       return true;
