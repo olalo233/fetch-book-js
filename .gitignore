@@ -1,6 +1,10 @@
-
 # Dependencies
 node_modules/
+
+# OS
+.DS_Store
+*.log
+Thumbs.db
 
 # Build outputs
 dist/
@@ -12,13 +16,8 @@ build/
 *.swp
 *.swo
 
-# OS
-.DS_Store
-Thumbs.db
-
 # Temporary files
 *.tmp
-*.log
 
 # Environment variables
 .env
@@ -28,3 +27,6 @@ Thumbs.db
 # Planning files (local only)
 .planning/
 
+# Bun lockfiles
+bun.lock
+bun.lockb
