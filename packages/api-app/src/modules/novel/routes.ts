@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { exporterRegistry } from "../../domain/Exporter";
 import type {
 	ChapterRepository,
 	NovelRepository,
@@ -92,6 +93,51 @@ export function createNovelRouter({
 			);
 		}
 		return c.json({ success: true, data: chapter });
+	});
+
+	router.get("/:id/export", async (c) => {
+		const novelId = c.req.param("id");
+		const format = c.req.query("format") || "txt";
+
+		const novel = await novelRepository.findById(novelId);
+		if (!novel) {
+			return c.json(
+				{
+					success: false,
+					error: { code: "NOT_FOUND", message: "Novel not found" },
+				},
+				404,
+			);
+		}
+
+		const chapters = await chapterRepository.findByNovelId(novelId);
+
+		const exporter = exporterRegistry.get(format);
+		if (!exporter) {
+			return c.json(
+				{
+					success: false,
+					error: {
+						code: "INVALID_FORMAT",
+						message: `Unsupported format: ${format}`,
+					},
+				},
+				400,
+			);
+		}
+
+		const stream = await exporter.export(novel, chapters);
+
+		const contentType =
+			format === "epub" ? "application/epub+zip" : "text/plain; charset=utf-8";
+		const filename = `${novel.title.replace(/[^\w\s-]/g, "_")}.${format}`;
+
+		return new Response(stream, {
+			headers: {
+				"Content-Type": contentType,
+				"Content-Disposition": `attachment; filename="${filename}"`,
+			},
+		});
 	});
 
 	router.post("/:id/chapters", async (c) => {
