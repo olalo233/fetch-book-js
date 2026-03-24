@@ -1,2 +1,2 @@
-export * from './strategies/StaticTokenAuthStrategy';
-export * from './middleware';
+export * from "./strategies/StaticTokenAuthStrategy";
+export * from "./middleware";
