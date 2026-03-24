@@ -6,9 +6,9 @@
 		"fetch-book-crawler": "./dist/cli.js"
 	},
 	"scripts": {
-		"dev": "bun run --hot src/server.ts",
+		"dev": "bun run --hot src/index.ts",
 		"dev:cli": "bun run src/cli.ts",
-		"build": "bun build src/server.ts --outdir dist --target bun &amp;&amp; bun build src/cli.ts --outdir dist --target bun",
+		"build": "bun build src/index.ts --outdir dist --target bun && bun build src/cli.ts --outdir dist --target bun",
 		"clean": "rm -rf dist"
 	},
 	"dependencies": {

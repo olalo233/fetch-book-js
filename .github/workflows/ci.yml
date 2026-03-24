@@ -28,3 +28,4 @@ jobs:
       - run: bun install
       - run: bun --filter "@fetch-book/shared" build
       - run: bun --filter "@fetch-book/api-app" build
+      - run: bun --filter "@fetch-book/crawler-app" build
