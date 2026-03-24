@@ -15,7 +15,9 @@
 		"@fetch-book/shared": "workspace:*",
 		"cheerio": "^1.0.0",
 		"commander": "^12.0.0",
-		"hono": "^4.0.0"
+		"graphile-worker": "^0.16.6",
+		"hono": "^4.0.0",
+		"pg": "^8.20.0"
 	},
 	"devDependencies": {
 		"typescript": "^5.4.0"
