@@ -1,18 +1,23 @@
-import type { Novel } from "../infrastructure/repositories/NovelRepository";
+import { Epubook } from "epubook";
 import type { Chapter } from "../infrastructure/repositories/ChapterRepository";
+import type { Novel } from "../infrastructure/repositories/NovelRepository";
 import type { Exporter } from "./Exporter";
 import { exporterRegistry } from "./Exporter";
-import { Epubook } from "epubook";
 
 export class EpubExporter implements Exporter {
 	format = "epub" as const;
 
-	async export(novel: Novel, chapters: Chapter[]): Promise<ReadableStream<Uint8Array>> {
+	async export(
+		novel: Novel,
+		chapters: Chapter[],
+	): Promise<ReadableStream<Uint8Array>> {
 		const book = await Epubook.create({
 			title: novel.title,
 			description: novel.description || "",
 			language: "zh-CN",
-			author: novel.author ? [{ name: novel.author }] : [{ name: "Unknown Author" }],
+			author: novel.author
+				? [{ name: novel.author }]
+				: [{ name: "Unknown Author" }],
 		});
 
 		// Add chapters

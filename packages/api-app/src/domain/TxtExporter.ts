@@ -1,5 +1,5 @@
-import type { Novel } from "../infrastructure/repositories/NovelRepository";
 import type { Chapter } from "../infrastructure/repositories/ChapterRepository";
+import type { Novel } from "../infrastructure/repositories/NovelRepository";
 import type { Exporter } from "./Exporter";
 import { exporterRegistry } from "./Exporter";
 
@@ -8,7 +8,10 @@ const encoder = new TextEncoder();
 export class TxtExporter implements Exporter {
 	format = "txt" as const;
 
-	async export(novel: Novel, chapters: Chapter[]): Promise<ReadableStream<Uint8Array>> {
+	async export(
+		novel: Novel,
+		chapters: Chapter[],
+	): Promise<ReadableStream<Uint8Array>> {
 		return new ReadableStream({
 			start(controller) {
 				// Write novel title
@@ -17,7 +20,9 @@ export class TxtExporter implements Exporter {
 					controller.enqueue(encoder.encode(`作者: ${novel.author}\n`));
 				}
 				if (novel.tags.length > 0) {
-					controller.enqueue(encoder.encode(`标签: ${novel.tags.join(", ")}\n`));
+					controller.enqueue(
+						encoder.encode(`标签: ${novel.tags.join(", ")}\n`),
+					);
 				}
 				controller.enqueue(encoder.encode("\n"));
 
